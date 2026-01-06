@@ -11,7 +11,7 @@ def test_read_root():
     """トップページ（API生存確認）のテスト"""
     response=client.get("/")
     assert response.status_code==200
-    assert response.json()=={"message": "Retro Sound Converter API is running. Go to /static/index.html"}
+    assert response.json()=={"message": "Retro Sound ConverterAPI is running. Go to /static/index.html"}
 
 def test_convert_audio():
     """音声変換機能の結合テスト"""
