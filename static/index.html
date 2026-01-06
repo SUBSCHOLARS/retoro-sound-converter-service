@@ -4,7 +4,7 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Retro Sound Converter</title>
-        <script src=""https://cdn.tailwindcss.com"></script>
+        <script src="https://cdn.tailwindcss.com"></script>
     </head>
     <body class="bg-gray-900 text-white min-h-screen flex items-center justify-center font-sans">
         <div class="bg-gray-900 p-8 rounded-lg shadow-xl w-full max-w-lg border border-gray-700">
@@ -62,7 +62,7 @@
             document.getElementById('targetFs').addEventListener('input', (e)=>document.getElementById('fsVal').innerText=e.target.value);
             document.getElementById('nBits').addEventListener('input', (e)=>document.getElementById('bitVal').innerText=e.target.value);
 
-            document.getElementById('converterForm').addEventListener('submit', async (e)=>{
+            document.getElementById('convertForm').addEventListener('submit', async (e)=>{
                 e.preventDefault();
 
                 const fileInput=document.getElementById('audioFile');
