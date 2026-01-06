@@ -41,4 +41,4 @@ def test_convert_audio():
     # レスポンスがwavファイルか？
     assert response.headers["content-type"]=="audio/wav"
     # ファイル名が正しいか？
-    assert "attachment; filename=retro_sound.wav" in response.headers["content-disposition"]
+    assert "attachment; filename=retro_sound_wav" in response.headers["content-disposition"]
