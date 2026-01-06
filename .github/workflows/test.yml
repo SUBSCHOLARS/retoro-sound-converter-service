@@ -1,0 +1,33 @@
+﻿name: CI Test Runner
+
+# いつ実行するか: masterブランチにpushされた時、またはプルリクエストが来た時
+on:
+  push:
+    branches: ["master"]
+  pull_request:
+    branches: ["master"]
+
+jobs:
+  test:
+    # 最新のUbuntu(Linux)環境で実行
+    runs-on: ubuntu-latest
+
+    steps:
+    # 1. GitHubからコードを取得
+    - uses: actions/checkout@v3
+    # 2. Python 3.9 をセットアップ
+    - name: Set up Python 3.9
+      uses: actions/setup-python@v4
+      with:
+        python-version: "3.9"
+    # 3. ライブラリのインストール
+    - name: Insta;; dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install -r requirements.txt
+        # テスト実行に必要なライブラリを追加で入れる
+        pip install pytest httpx
+    # 4. テストの実行
+    - name: Run pytest
+      run: |
+        pytest
