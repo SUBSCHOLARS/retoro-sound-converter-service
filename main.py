@@ -76,5 +76,5 @@ async def convert_audio(
     return StreamingResponse(
         output_io,
         media_type="audio/wav",
-        headers={"Content-Disposition": "attachement; filename=retro_sound_wav"}
+        headers={"Content-Disposition": "attachment; filename=retro_sound_wav"}
     )
