@@ -1,5 +1,5 @@
 ﻿from fastapi import FastAPI, UploadFile, File, Form
-from fastapi.responses import StreamingResponse
+from fastapi.responses import StreamingResponse, FileResponse
 from fastapi.staticfiles import StaticFiles
 import numpy as np
 import scipy.io.wavfile as wav
@@ -17,7 +17,8 @@ def read_root():
     # ルートにアクセスしたらstatic/index.htmlを返すようにリダイレクトしても良いが、
     # ここではAPIが生きている確認用にメッセージを返す。
     # フロントエンドは指定されたポートにアクセスして使う
-    return {"message": "Retro Sound ConverterAPI is running. Go to /static/index.html"}
+    # return {"message": "Retro Sound ConverterAPI is running. Go to /static/index.html"}
+    return FileResponse("static/index.html")
 
 def process_audio(audio_data, sample_rate, target_fs, n_bits):
     # 1. ステレオ->モノラル変換
