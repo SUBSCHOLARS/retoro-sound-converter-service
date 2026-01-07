@@ -8,10 +8,11 @@ import io
 client=TestClient(app)
 
 def test_read_root():
-    """トップページ（API生存確認）のテスト"""
+    """トップページがHTMLを返すかテスト"""
     response=client.get("/")
     assert response.status_code==200
-    assert response.json()=={"message": "Retro Sound ConverterAPI is running. Go to /static/index.html"}
+    # レスポンスがHTMLであることを確認
+    assert "text/html" in response.headers["content-type"]
 
 def test_convert_audio():
     """音声変換機能の結合テスト"""
