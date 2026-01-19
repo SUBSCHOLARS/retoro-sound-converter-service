@@ -5,8 +5,10 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Retro Sound Converter</title>
         <script src="https://cdn.tailwindcss.com"></script>
+        <link rel="stylesheet" href="/static/style.css">
+        <script src="/static/script.js" defer></script>
     </head>
-    <body class="bg-gray-900 text-white min-h-screen flex items-center justify-center font-sans">
+    <body class="text-white min-h-screen flex items-center justify-center font-sans">
         <div class="bg-gray-900 p-8 rounded-lg shadow-xl w-full max-w-lg border border-gray-700">
             <h1 class="text-3xl font-bold mb-6 text-center text-green-400 tracking-wider">RETRO SOUND<br><span class="text-sm text-white font-normal">CONVERTER</span></h1>
             <form id="convertForm" class="space-y-6">
@@ -56,56 +58,5 @@
                 </a>
             </div>
         </div>
-
-        <script>
-            // UI操作のロジック
-            document.getElementById('targetFs').addEventListener('input', (e)=>document.getElementById('fsVal').innerText=e.target.value);
-            document.getElementById('nBits').addEventListener('input', (e)=>document.getElementById('bitVal').innerText=e.target.value);
-
-            document.getElementById('convertForm').addEventListener('submit', async (e)=>{
-                e.preventDefault();
-
-                const fileInput=document.getElementById('audioFile');
-                if(fileInput.files.length==0){
-                    alert("ファイルを選択してください");
-                    return
-                }
-                const formData=new FormData();
-                formData.append('file', fileInput.files[0]);
-                formData.append('target_fs', document.getElementById('targetFs').value);
-                formData.append('n_bits', document.getElementById('nBits').value);
-
-                const btn=e.target.querySelector('button');
-                const originalText=btn.innerText;
-                btn.innerText="処理中..."
-                btn.disabled=true;
-                btn.classList.add('opacity-50', 'cursor-not-allowed');
-
-                try{
-                    // バックエンド（/convert）にデータ送信
-                    const response=await fetch('/convert',{method: 'POST', body: formData});
-                    if(!response.ok) throw new Error('Convertion failed');
-
-                    const blob=await response.blob();
-                    const url=URL.createObjectURL(blob);
-
-                    const audioPlayer=document.getElementById('audioPlayer');
-                    audioPlayer.src=url;
-
-                    const downloadLink=document.getElementById('downloadLink');
-                    downloadLink.href=url;
-                    downloadLink.download=`retro_${Date.now()}.wav`;
-
-                    document.getElementById('resultArea').classList.remove('hidden');
-                } catch(err){
-                    console.error(err);
-                    alert("変換に失敗しました。コンソールを確認してください。")
-                }finally{
-                    btn.innerText=originalText;
-                    btn.disabled=false;
-                    btn.classList.remove('opacity-50', 'cursor-not-allowed');
-                }
-            });
-        </script>
     </body>
 </html>
