@@ -4,7 +4,7 @@ body {
 }
 
 /* スライダーのカスタマイズ（ブラウザ標準の見た目を上書き） */
-input[type=range]{
+/* input[type=range]{
     -webkit-appearance: none;
     appearance: none;
     background: transparent;
@@ -26,4 +26,4 @@ input[type=range]::-webkit-slider-runnable-track{
     cursor: pointer;
     background: #4b5563;
     border-radius: 2px;
-}
+} */
