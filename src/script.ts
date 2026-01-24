@@ -15,11 +15,13 @@ const audioFileInput=document.getElementById('audioFile') as HTMLInputElement;
 targetFsInput.addEventListener('input', (e: Event) => {
     const target=e.target as HTMLInputElement;
     fsValDisplay.innerText=target.value;
+    console.log(target.value);
 });
 
 nBitsInput.addEventListener('input', (e: Event) => {
     const target=e.target as HTMLInputElement;
     bitValDisplay.innerText=target.value;
+    console.log(target.value);
 });
 
 // 送信ボタンが押された時の処理

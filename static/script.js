@@ -22,10 +22,12 @@ const audioFileInput = document.getElementById('audioFile');
 targetFsInput.addEventListener('input', (e) => {
     const target = e.target;
     fsValDisplay.innerText = target.value;
+    console.log(target.value);
 });
 nBitsInput.addEventListener('input', (e) => {
     const target = e.target;
     bitValDisplay.innerText = target.value;
+    console.log(target.value);
 });
 // 送信ボタンが押された時の処理
 convertForm.addEventListener('submit', (e) => __awaiter(void 0, void 0, void 0, function* () {
