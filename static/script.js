@@ -79,4 +79,5 @@ convertForm.addEventListener('submit', (e) => __awaiter(void 0, void 0, void 0, 
         btn.classList.remove('opacity-50', 'cursor-not-allowed');
     }
 }));
+// export {};
 //# sourceMappingURL=script.js.map
