@@ -1,7 +1,7 @@
 # Retro Sound Converter
 
 ゲーム開発で使っていた音声ファイルをレトロな音質に変換するプログラムをAIと一緒に頑張ってデプロイまで持って行きました。
-フロントエンドはHTML, Tailwind CSSで記述し、バックエンドをPythonのFastAPIで実装しています。
+フロントエンドはHTML, Tailwind CSS, TypeScript, JavaScriptで記述し、バックエンドをPythonのFastAPIで実装しています。
 Dockerを用いたコンテナ化や
 GitHub Actionsを用いた自動テストも試してみました。
 いい時代になったなあ...
